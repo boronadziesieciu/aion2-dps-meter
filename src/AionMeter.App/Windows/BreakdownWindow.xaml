@@ -217,6 +217,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="170" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <Border CornerRadius="8" Background="#0CFFFFFF" Padding="4,6,8,2">
@@ -225,7 +226,13 @@
                                 <c:TimelineChart x:Name="Chart" Margin="0,14,0,0" />
                             </Grid>
                         </Border>
-                        <Grid x:Name="SkillHead" Grid.Row="1" Margin="8,12,14,4">
+                        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="8,8,8,0">
+                            <TextBlock Text="{Binding PeakBurstLabel, Source={x:Static s:UiText.Current}}" Style="{StaticResource SectionLabel}" />
+                            <TextBlock x:Name="PeakBurstValue" Margin="6,0,22,0" Foreground="{StaticResource GoldBright}" FontWeight="SemiBold" />
+                            <TextBlock Text="{Binding DamageActivityLabel, Source={x:Static s:UiText.Current}}" Style="{StaticResource SectionLabel}" />
+                            <TextBlock x:Name="DamageActivityValue" Margin="6,0,0,0" FontWeight="SemiBold" />
+                        </StackPanel>
+                        <Grid x:Name="SkillHead" Grid.Row="2" Margin="8,12,14,4">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="54" />
@@ -245,7 +252,7 @@
                             <Button Grid.Column="6" Tag="Crit" Style="{StaticResource ThButton}" />
                             <Button Grid.Column="7" Tag="Share" Style="{StaticResource ThButton}" />
                         </Grid>
-                        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+                        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto">
                             <ItemsControl x:Name="SkillList">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
