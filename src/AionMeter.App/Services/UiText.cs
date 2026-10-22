@@ -240,6 +240,10 @@ public sealed class UiText
     public string TileContrib { get; init; } = "CONTRIB";
     public string TileTime { get; init; } = "TIME";
     public string DpsTimeline { get; init; } = "DPS TIMELINE";
+    public string PeakBurstLabel { get; init; } = "PEAK 5s";
+    public string DamageActivityLabel { get; init; } = "DMG ACTIVITY";
+    public string PeakBurstTip { get; init; } = "Highest DPS over a sliding five-second window.";
+    public string DamageActivityTip { get; init; } = "Percentage of fight seconds with outgoing damage, including DoT and pets. Not skill uptime.";
     public string ThSkill { get; init; } = "SKILL";
     public string ThHits { get; init; } = "HITS";
     public string ThDamage { get; init; } = "DAMAGE";
@@ -577,6 +581,10 @@ public sealed class UiText
         TileContrib = "ВКЛАД",
         TileTime = "ВРЕМЯ",
         DpsTimeline = "DPS ПО ВРЕМЕНИ",
+        PeakBurstLabel = "ПИК 5с",
+        DamageActivityLabel = "АКТИВНОСТЬ УРОНА",
+        PeakBurstTip = "Максимальный DPS за скользящие пять секунд.",
+        DamageActivityTip = "Доля секунд боя с исходящим уроном, включая DoT и питомцев. Не время действия умений.",
         ThSkill = "УМЕНИЕ",
         ThHits = "УДАРЫ",
         ThDamage = "УРОН",

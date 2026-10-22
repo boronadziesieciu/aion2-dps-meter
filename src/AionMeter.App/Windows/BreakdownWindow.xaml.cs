@@ -168,6 +168,11 @@ public partial class BreakdownWindow : Window
         StatDps.Text = Format.Compact(d.Dps);
         StatShare.Text = Format.Share(d.Share);
         StatTime.Text = Format.Clock(d.CombatMs);
+        var insights = CombatInsights.Analyze(d.PerSecond, d.CombatMs);
+        PeakBurstValue.Text = Format.Compact(insights.PeakBurstDps) + "/s";
+        PeakBurstValue.ToolTip = T.PeakBurstTip;
+        DamageActivityValue.Text = Format.Percent(insights.DamageSecondShare);
+        DamageActivityValue.ToolTip = T.DamageActivityTip;
 
         var maxShare = d.Skills.Count > 0 ? d.Skills.Max(s => s.Share) : 1;
         SkillList.ItemsSource = _skillOrder.Apply(d.Skills, T.Culture).Select(s => ToItem(s, maxShare)).ToList();
